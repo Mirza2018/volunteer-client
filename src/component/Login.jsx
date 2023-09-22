@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from 'sweetalert2'
+import { FcGoogle } from "react-icons/fc";
 
 
 const Login = () => {
-    const { logIn } = useContext(AuthContext)
+
+    const { logIn, googleLogIn } = useContext(AuthContext)
     const handleSubmit = e => {
         e.preventDefault()
         const email = e.target.email.value;
@@ -16,7 +18,7 @@ const Login = () => {
                 console.log(res.user);
                 Swal.fire(
                     'Successfully login!',
-                    'your wellcome',
+                    'your welcome',
                     'success'
                 )
                 e.target.reset()
@@ -25,6 +27,23 @@ const Login = () => {
                 console.log(error);
             })
     }
+    const googlePopUp = () => {
+        googleLogIn()
+            .then(res => {
+                console.log(res.user);
+                Swal.fire(
+                    'Successfully login!',
+                    'your welcome',
+                    'success'
+                )
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col ">
@@ -52,9 +71,16 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
+<div onClick={googlePopUp} className="form-control mt-6">
+                        <button className="btn btn-primary"><FcGoogle/> Google log IN</button>
+                    </div>
+
                         </div>
                     </div>
+                    
+
                 </form>
+
             </div>
         </div>
     );

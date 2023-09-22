@@ -20,7 +20,7 @@ const Register = () => {
 
                         Swal.fire(
                             'Successfully Registation Done!',
-                            'your wellcome',
+                            'your welcome',
                             'success'
                         )
                         e.target.reset()
