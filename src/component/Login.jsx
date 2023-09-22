@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from 'sweetalert2'
 
 
 const Login = () => {
@@ -13,6 +14,12 @@ const Login = () => {
         logIn(email, password)
             .then(res => {
                 console.log(res.user);
+                Swal.fire(
+                    'Successfully login!',
+                    'your wellcome',
+                    'success'
+                )
+                e.target.reset()
             })
             .catch(error => {
                 console.log(error);
