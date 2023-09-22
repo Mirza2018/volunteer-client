@@ -1,18 +1,37 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const Register = () => {
-    const handleSubmit=e=>{
+    const { createUser, update } = useContext(AuthContext)
+    const handleSubmit = e => {
         e.preventDefault()
-        const name=e.target.email.value;
-        const email=e.target.email.value;
-        const password=e.target.password.value;
-        console.log(email,password,name);
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log(email, password, name);
+        createUser(email, password)
+            .then(res => {
+                console.log(res.user);
+                update(name)
+                    .then(res => {
+                        console.log(res.user);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
     }
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col ">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
+                    <h1 className="text-5xl font-bold">Register!!!</h1>
                 </div>
                 <form onSubmit={handleSubmit}>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -35,11 +54,11 @@ const Register = () => {
                                 </label>
                                 <input type="password" name='password' required placeholder="password" className="input input-bordered" />
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <a href="#" className="label-text-alt link link-hover"><Link to='/login'>Already have an account? Login!</Link></a>
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn btn-primary">Register</button>
                             </div>
                         </div>
                     </div>

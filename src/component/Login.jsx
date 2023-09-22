@@ -1,11 +1,22 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const Login = () => {
-    const handleSubmit=e=>{
+    const { logIn } = useContext(AuthContext)
+    const handleSubmit = e => {
         e.preventDefault()
-        const email=e.target.email.value;
-        const password=e.target.password.value;
-        console.log(email,password);
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log(email, password);
+        logIn(email, password)
+            .then(res => {
+                console.log(res.user);
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -28,7 +39,7 @@ const Login = () => {
                                 </label>
                                 <input type="password" name='password' required placeholder="password" className="input input-bordered" />
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <a href="#" className="label-text-alt link link-hover"><Link to='/register'>Don't have an account? Register</Link></a>
                                 </label>
                             </div>
                             <div className="form-control mt-6">

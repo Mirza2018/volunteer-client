@@ -4,7 +4,7 @@ import Navber from "./Navber";
 const Home = () => {
     return (
         <div>
-            <Navber></Navber>
+            
             <DonationLists></DonationLists>
         </div>
     );
