@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/logos/Group 1329.png"
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+
 
 const Navber = () => {
+    const { user, logOut } = useContext(AuthContext);
+
     const liTag = <>
 
         <li><Link to='/'>Home</Link></li>
@@ -33,8 +38,22 @@ const Navber = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-3">
-                <a className="btn bg-black text-white w-[15vw]">Register</a>
-                <a className="btn bg-black text-white  w-[15vw]">Admin</a>
+                {
+
+
+                    user ? <> <button className="btn bg-black text-white  w-[15vw]">{user.email}</button>
+                        <button className="btn bg-black text-white  w-[15vw]" onClick={logOut} >Sign Out</button></>
+                        :
+                        <>
+                            <Link to='/login'><button className="btn bg-black text-white  w-[15vw]">Login</button></Link>
+                            <Link to='/register'><button className="btn bg-black text-white w-[15vw]">Register</button></Link>
+                        </>
+
+
+                }
+
+
+
             </div>
         </div>
     </>
