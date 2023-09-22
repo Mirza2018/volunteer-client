@@ -9,7 +9,6 @@ function App() {
   return (
     <>
       <img src="" alt="" />
-      <Navber></Navber>
       <Outlet></Outlet>
     </>
   )
