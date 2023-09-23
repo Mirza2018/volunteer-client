@@ -9,7 +9,8 @@ const Volunteer = () => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
     const [donations, setDonations] = useState([])
-    
+
+
     const url = `http://localhost:5000/volunteerpage/?email=${user?.email}`
     useEffect(() => {
         fetch(url, {
@@ -28,9 +29,13 @@ const Volunteer = () => {
                     navigate('/')
                 }
             })
-    }, [url,navigate])
+    }, [url, navigate])
 
     console.log(donations);
+
+    
+
+
     return (
         <div className="overflow-x-auto">
             <table className="table">

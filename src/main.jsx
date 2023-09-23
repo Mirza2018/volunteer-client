@@ -14,6 +14,7 @@ import DonationSingle from './component/DonationSingle.jsx';
 import PrivetRoute from './component/PrivetRoute.jsx';
 import Volunteer from './component/Volunteer.jsx';
 import AdimPenal from './component/AdimPenal.jsx';
+import AddnewVolenteers from './component/AddnewVolenteers.jsx';
 
 
 
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: '/volunteerpage',
         element: <PrivetRoute><Volunteer></Volunteer></PrivetRoute>
+      },
+      {
+        path: '/addnewitems',
+        element: <PrivetRoute><AddnewVolenteers></AddnewVolenteers></PrivetRoute>
       },
       {
         path: '/adminpage',

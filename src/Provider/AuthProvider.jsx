@@ -15,6 +15,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currrentUser => {
             setUser(currrentUser);
+            setLodding(false)
             if (currrentUser && currrentUser.email) {
                 const loggedUser = { email: currrentUser.email }
                 fetch('http://localhost:5000/jwt', {
@@ -34,7 +35,7 @@ const AuthProvider = ({ children }) => {
                 localStorage.removeItem('volunteer-access-token')
             }
 
-            setLodding(false)
+           
         })
         return () => {
             unsubscribe;

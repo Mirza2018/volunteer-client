@@ -11,8 +11,11 @@ const Navber = () => {
 
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/volunteerpage'>My Donation</Link></li>
-        <li><Link to='/'>Event</Link></li>
-        <li><Link to='/'>Blog</Link></li>
+        <li><Link to='/adminpage'>Admin panel</Link></li>
+        {/* {user?.email == 'mirza.eee.4th@gmail.com' && <li><Link to='/adminpage'>Admin panel</Link></li>} */}
+
+        <li><Link to='/addnewitems'>Add Volunteer</Link></li>
+
 
 
     </>
