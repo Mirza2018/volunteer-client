@@ -71,13 +71,13 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
-<div onClick={googlePopUp} className="form-control mt-6">
-                        <button className="btn btn-primary"><FcGoogle/> Google log IN</button>
-                    </div>
+                            <div onClick={googlePopUp} className="form-control mt-6">
+                                <button className="btn btn-primary"><FcGoogle /> Google log IN</button>
+                            </div>
 
                         </div>
                     </div>
-                    
+
 
                 </form>
 

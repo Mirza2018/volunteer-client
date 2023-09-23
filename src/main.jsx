@@ -10,6 +10,7 @@ import Home from './component/Home.jsx';
 import Login from './component/Login.jsx';
 import Register from './component/Register.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
+import DonationSingle from './component/DonationSingle.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,13 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register></Register>
       },
+
+      {
+        path: '/donation/:id',
+        element: <DonationSingle></DonationSingle>,
+        loader: ({params}) => fetch(`http://localhost:5000/volunteer/${params.id}`)
+      },
+
 
     ]
   },
