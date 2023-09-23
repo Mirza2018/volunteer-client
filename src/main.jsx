@@ -11,6 +11,7 @@ import Login from './component/Login.jsx';
 import Register from './component/Register.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import DonationSingle from './component/DonationSingle.jsx';
+import PrivetRoute from './component/PrivetRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
 
       {
         path: '/donation/:id',
-        element: <DonationSingle></DonationSingle>,
+        element: <PrivetRoute><DonationSingle></DonationSingle></PrivetRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/volunteer/${params.id}`)
       },
 

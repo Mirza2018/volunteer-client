@@ -1,11 +1,14 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from 'sweetalert2'
 import { FcGoogle } from "react-icons/fc";
 
 
 const Login = () => {
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
+    const navigate = useNavigate()
 
     const { logIn, googleLogIn } = useContext(AuthContext)
     const handleSubmit = e => {
@@ -22,6 +25,7 @@ const Login = () => {
                     'success'
                 )
                 e.target.reset()
+                navigate(from)
             })
             .catch(error => {
                 console.log(error);
@@ -36,6 +40,7 @@ const Login = () => {
                     'your welcome',
                     'success'
                 )
+                navigate(from)
             })
             .catch(error => {
                 console.log(error);
