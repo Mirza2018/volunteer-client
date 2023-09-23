@@ -36,8 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/volunteerpage',
-        element: <Volunteer></Volunteer>,
-        loader: () => fetch('http://localhost:5000/volunteerpage')
+        element: <Volunteer></Volunteer>
       },
       {
         path: '/adminpage',
