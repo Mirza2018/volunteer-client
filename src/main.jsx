@@ -12,6 +12,10 @@ import Register from './component/Register.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import DonationSingle from './component/DonationSingle.jsx';
 import PrivetRoute from './component/PrivetRoute.jsx';
+import Volunteer from './component/Volunteer.jsx';
+import AdimPenal from './component/AdimPenal.jsx';
+
+
 
 const router = createBrowserRouter([
   {
@@ -30,11 +34,21 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register></Register>
       },
+      {
+        path: '/volunteerpage',
+        element: <Volunteer></Volunteer>,
+        loader: () => fetch('http://localhost:5000/volunteerpage')
+      },
+      {
+        path: '/adminpage',
+        element: <AdimPenal></AdimPenal>,
+        loader: () => fetch('http://localhost:5000/volunteerpage')
+      },
 
       {
         path: '/donation/:id',
         element: <PrivetRoute><DonationSingle></DonationSingle></PrivetRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/volunteer/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/volunteer/${params.id}`)
       },
 
 
