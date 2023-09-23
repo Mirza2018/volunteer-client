@@ -36,11 +36,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/volunteerpage',
-        element: <Volunteer></Volunteer>
+        element: <PrivetRoute><Volunteer></Volunteer></PrivetRoute>
       },
       {
         path: '/adminpage',
-        element: <AdimPenal></AdimPenal>,
+        element: <PrivetRoute><AdimPenal></AdimPenal></PrivetRoute>,
         loader: () => fetch('http://localhost:5000/volunteerpage')
       },
 

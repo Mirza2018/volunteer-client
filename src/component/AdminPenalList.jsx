@@ -1,10 +1,15 @@
+import Swal from "sweetalert2";
 
-const AdminPenalList = ({ donate }) => {
-    const { name, img, person, email, date, donation } = donate;
+const AdminPenalList = ({ donate, handlePatch,handleDelete }) => {
+    const { _id, name, img, person, email, date, donation,status } = donate;
+
+
 
     return (
         <tr>
-
+<td>
+    <button onClick={()=>handleDelete(_id)} className="bg-red-600 text-white font-bold rounded-full p-2">X</button>
+</td>
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
@@ -28,7 +33,14 @@ const AdminPenalList = ({ donate }) => {
             </td>
 
             <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                {
+                    status? 
+                    <button className="btn btn-ghost btn-xs bg-success">confirm</button>
+                    :
+                    <button onClick={() => handlePatch(_id)} className="btn btn-ghost btn-xs bg-warning">waiting</button>
+                }
+                
+                
             </th>
         </tr>
     );
