@@ -40,8 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/adminpage',
-        element: <PrivetRoute><AdimPenal></AdimPenal></PrivetRoute>,
-        loader: () => fetch('http://localhost:5000/volunteerpage')
+        element: <PrivetRoute><AdimPenal></AdimPenal></PrivetRoute>
       },
 
       {

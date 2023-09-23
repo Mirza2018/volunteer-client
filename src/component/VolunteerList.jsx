@@ -1,7 +1,7 @@
 
 
 const VolunteerList = ({ donate }) => {
-    const { name, img, person, email, date, donation } = donate;
+    const { name, img, person, email, date, donation,status } = donate;
 
     return (
         <tr>
@@ -29,7 +29,12 @@ const VolunteerList = ({ donate }) => {
             </td>
 
             <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+            {
+                    status? 
+                    <button className="btn btn-ghost btn-xs bg-success">confirm</button>
+                    :
+                    <button className="btn btn-ghost btn-xs bg-warning">waiting</button>
+                }
             </th>
         </tr>
     );

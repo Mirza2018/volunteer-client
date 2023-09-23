@@ -20,7 +20,7 @@ const Navber = () => {
         <div className="h-[40vh] relative " style={{ backgroundImage: `url("https://www.embracingtheworld.org/wp-content/assets/images/food_hero_1800.jpg")`, opacity: 0.2 }}>
 
         </div >
-        <div className="navbar bg absolute top-0 font-bold ">
+        <div className="navbar bg absolute top-5 font-bold ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

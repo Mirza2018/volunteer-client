@@ -1,12 +1,35 @@
-import { useLoaderData } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import AdminPenalList from "./AdminPenalList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 
 const AdimPenal = () => {
-    const loadDonations = useLoaderData()
-    const [donations, setDonations] = useState(loadDonations)
+    const [donations, setDonations] = useState([])
+
+    const navigate = useNavigate()
+    const url = 'http://localhost:5000/adminpage'
+
+
+    useEffect(() => {
+        fetch(url, {
+            method: "GET",
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('volunteer-access-token')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                if (!data.error) {
+                    return setDonations(data)
+                }
+                // else {
+                //     navigate('/')
+                // }
+            })
+    }, [url, navigate])
+
     console.log(donations);
 
     const handlePatch = (id) => {
@@ -79,6 +102,7 @@ const AdimPenal = () => {
                 {/* head */}
                 <thead>
                     <tr>
+                        <th>Delete</th>
                         <th>Name</th>
                         <th>Details</th>
                         <th>Donation Amount</th>
