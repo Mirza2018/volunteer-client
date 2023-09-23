@@ -15,6 +15,7 @@ import PrivetRoute from './component/PrivetRoute.jsx';
 import Volunteer from './component/Volunteer.jsx';
 import AdimPenal from './component/AdimPenal.jsx';
 import AddnewVolenteers from './component/AddnewVolenteers.jsx';
+import DonationLists from './component/DonationLists.jsx';
 
 
 
@@ -23,10 +24,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <App></App>,
     children: [
-      {
-        path: '/',
-        element: <Home></Home>
-      },
       {
         path: '/login',
         element: <Login></Login>
@@ -38,6 +35,11 @@ const router = createBrowserRouter([
       {
         path: '/volunteerpage',
         element: <PrivetRoute><Volunteer></Volunteer></PrivetRoute>
+      },
+      {
+        path: '/',
+        element: <DonationLists></DonationLists>,
+        loader: () => fetch('http://localhost:5000/totalproducts')
       },
       {
         path: '/addnewitems',

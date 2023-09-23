@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 
 
 const AddnewVolenteers = () => {
@@ -5,21 +6,58 @@ const AddnewVolenteers = () => {
         e.preventDefault()
         const name = e.target.name.value;
         const url = e.target.file.value;
-        const item={
-            name,url
+        const item = {
+            name, img: url
         }
-        console.log(name, url);
-        fetch('http://localhost:5000/addnew',{
-            method:"POST",
-            headers:{
-                "content-type":"application/json"
-            },
-            body:JSON.stringify(item)
+
+
+
+
+
+
+
+        Swal.fire({
+            title: 'Do you want to Add new volunteer operation?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+            denyButtonText: `Cancel`,
         })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data);
-        })
+
+
+            .then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    fetch('http://localhost:5000/addnew', {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json"
+                        },
+                        body: JSON.stringify(item)
+                    })
+
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                            if (data.acknowledged) {
+                                Swal.fire('Added Successfully!', '', 'success')
+                            }
+
+                        })
+
+                }
+                else if (result.isDenied) {
+
+                    Swal.fire('Cancel Adding', '', 'info')
+                }
+
+            })
+
+
+
+
+
+
     }
     return (
         <center>

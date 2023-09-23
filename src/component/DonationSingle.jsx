@@ -27,6 +27,8 @@ const DonationSingle = () => {
             confirmButtonText: 'Yes',
             denyButtonText: `Cancel`,
         })
+
+        
             .then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
