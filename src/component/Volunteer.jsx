@@ -11,7 +11,7 @@ const Volunteer = () => {
     const [donations, setDonations] = useState([])
 
 
-    const url = `https://volunteer-server-1.onrender.com/volunteerpage/?email=${user?.email}`
+    const url = `https://volunteer-server-msio.onrender.com/volunteerpage/?email=${user?.email}`
     useEffect(() => {
         fetch(url, {
             method: "GET",

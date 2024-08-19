@@ -8,14 +8,14 @@ const DonationLists = () => {
 
     const { totalProducts } = useLoaderData()
     const [currentPage, setCurrentPage] = useState(0)
-    const [itemsPerPage, setItemsPerPage] = useState(6)
+    const [itemsPerPage, setItemsPerPage] = useState(8)
 
 
-    const totalPage = Math.ceil(totalProducts / itemsPerPage)
+    const totalPage = Math.ceil(totalProducts / itemsPerPage) || 1
     console.log(totalPage);
     const pageNumbers = [...Array(totalPage).keys()]
     console.log(pageNumbers);
-    const options = [6, 9];
+    const options = [8, 16];
     const handleSelectChange = (e) => {
         setItemsPerPage(parseInt(e.target.value))
         setCurrentPage(0)
@@ -26,7 +26,7 @@ const DonationLists = () => {
 
 
     useEffect(() => {
-        fetch(`https://volunteer-server-1.onrender.com/volunteer?page=${currentPage}&limit=${itemsPerPage}`)
+        fetch(`https://volunteer-server-msio.onrender.com/volunteer?page=${currentPage}&limit=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => setVolunteers(data))
     }, [currentPage, itemsPerPage])

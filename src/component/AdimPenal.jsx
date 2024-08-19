@@ -10,7 +10,7 @@ const AdimPenal = () => {
     const [donations, setDonations] = useState([])
 
     const navigate = useNavigate()
-    const url = 'https://volunteer-server-1.onrender.com/adminpage'
+    const url = 'https://volunteer-server-msio.onrender.com/adminpage'
 
 
     useEffect(() => {
@@ -35,7 +35,7 @@ const AdimPenal = () => {
     console.log(donations);
 
     const handlePatch = (id) => {
-        fetch(`https://volunteer-server-1.onrender.com/update/${id}`, {
+        fetch(`https://volunteer-server-msio.onrender.com/update/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"
@@ -74,7 +74,7 @@ const AdimPenal = () => {
             .then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
-                    fetch(`https://volunteer-server-1.onrender.com/delete/${id}`, {
+                    fetch(`https://volunteer-server-msio.onrender.com/delete/${id}`, {
                         method: "DELETE"
                     })
                         .then(res => res.json())

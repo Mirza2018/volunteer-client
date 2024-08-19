@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <DonationLists></DonationLists>,
-        loader: () => fetch('https://volunteer-server-1.onrender.com/totalproducts')
+        loader: () => fetch('https://volunteer-server-msio.onrender.com/totalproducts')
       },
       {
         path: '/addnewitems',
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
       {
         path: '/donation/:id',
         element: <DonationSingle></DonationSingle>,
-        loader: ({ params }) => fetch(`https://volunteer-server-1.onrender.com/volunteer/${params.id}`)
+        loader: ({ params }) => fetch(`https://volunteer-server-msio.onrender.com/volunteer/${params.id}`)
       },
 
 
