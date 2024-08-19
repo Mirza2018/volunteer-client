@@ -34,7 +34,7 @@ const DonationSingle = () => {
                 if (result.isConfirmed) {
 
 
-                    fetch(`http://localhost:5000/donation`, {
+                    fetch(`https://volunteer-server-1.onrender.com/donation`, {
                         method: "POST",
                         headers: {
                             "content-type": "application/json"

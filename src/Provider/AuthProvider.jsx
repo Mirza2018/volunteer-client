@@ -18,7 +18,7 @@ const AuthProvider = ({ children }) => {
             setLodding(false)
             if (currrentUser && currrentUser.email) {
                 const loggedUser = { email: currrentUser.email }
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://volunteer-server-1.onrender.com/jwt', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'

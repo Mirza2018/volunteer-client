@@ -28,7 +28,7 @@ const AddnewVolenteers = () => {
             .then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
-                    fetch('http://localhost:5000/addnew', {
+                    fetch('https://volunteer-server-1.onrender.com/addnew', {
                         method: "POST",
                         headers: {
                             "content-type": "application/json"

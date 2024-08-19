@@ -26,7 +26,7 @@ const DonationLists = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/volunteer?page=${currentPage}&limit=${itemsPerPage}`)
+        fetch(`https://volunteer-server-1.onrender.com/volunteer?page=${currentPage}&limit=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => setVolunteers(data))
     }, [currentPage, itemsPerPage])
