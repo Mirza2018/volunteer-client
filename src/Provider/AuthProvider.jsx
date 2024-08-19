@@ -31,11 +31,11 @@ const AuthProvider = ({ children }) => {
                         localStorage.setItem('volunteer-access-token', data.token)
                     })
             }
-            else{
+            else {
                 localStorage.removeItem('volunteer-access-token')
             }
 
-           
+
         })
         return () => {
             unsubscribe;

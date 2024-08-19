@@ -1,6 +1,6 @@
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AdminPenalList from "./AdminPenalList";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 
@@ -96,7 +96,7 @@ const AdimPenal = () => {
                 }
             })
     }
-    
+
     return (
         <div className="overflow-x-auto">
             <table className="table">

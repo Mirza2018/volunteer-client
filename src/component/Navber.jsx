@@ -10,8 +10,8 @@ const Navber = () => {
     const liTag = <>
 
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/volunteerpage'>My Donation</Link></li>
-        <li><Link to='/adminpage'>Admin panel</Link></li>
+        {/* <li><Link to='/volunteerpage'>My Donation</Link></li>
+        <li><Link to='/adminpage'>Admin panel</Link></li> */}
         {/* {user?.email == 'mirza.eee.4th@gmail.com' && <li><Link to='/adminpage'>Admin panel</Link></li>} */}
 
         <li><Link to='/addnewitems'>Add Volunteer</Link></li>
@@ -20,7 +20,7 @@ const Navber = () => {
 
     </>
     return (<>
-        <div className="h-[40vh] relative " style={{ backgroundImage: `url("https://www.embracingtheworld.org/wp-content/assets/images/food_hero_1800.jpg")`, opacity: 0.2 }}>
+        <div className="h-[50vh] relative " style={{ backgroundImage: `url("https://www.embracingtheworld.org/wp-content/assets/images/food_hero_1800.jpg")`, opacity: 0.5 }}>
 
         </div >
         <div className="navbar bg absolute top-5 font-bold ">
@@ -33,7 +33,8 @@ const Navber = () => {
                         {liTag}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl"><img className="h-[100%]" src={logo} alt="" /></a>
+                <Link to="/"><a className="btn btn-ghost normal-case text-xl"><img className="h-[100%]" src={logo} alt="" /></a></Link>
+                
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

@@ -34,7 +34,7 @@ const DonationLists = () => {
 
     return (
         <>
-            <div className="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 m-20 gap-10">
+            <div className="grid md:grid-cols-2  grid-cols-1 xl:grid-cols-3 2xl:grid-cols-4 mt-20 p-6 gap-10 place-items-center  ">
                 {
                     volunteers.map(volunteer =>
                         <Donation key={volunteer._id}
@@ -55,7 +55,7 @@ const DonationLists = () => {
                 }
 
 
-                <select className="border-4 border-black"  value={itemsPerPage} onChange={handleSelectChange}>
+                <select className="border-4 border-black" value={itemsPerPage} onChange={handleSelectChange}>
                     {
                         options.map(option => (
                             <option key={option} value={option}>

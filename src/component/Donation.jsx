@@ -7,7 +7,7 @@ const Donation = ({ volunteer }) => {
         <div className="relative w-96 bg-base-100 shadow-xl ">
             <figure><img src={img} alt={name} /></figure>
             <Link  to={`/donation/${_id}`}>
-            <button className="btn btn-primary w-full absolute bottom-0">{name}</button></Link>
+            <button className="btn btn-info w-full absolute bottom-0 text-white ">{name}</button></Link>
         </div >
 
     );

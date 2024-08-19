@@ -6,7 +6,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Home from './component/Home.jsx';
 import Login from './component/Login.jsx';
 import Register from './component/Register.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
@@ -43,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/addnewitems',
-        element: <PrivetRoute><AddnewVolenteers></AddnewVolenteers></PrivetRoute>
+        element: <AddnewVolenteers></AddnewVolenteers>
       },
       {
         path: '/adminpage',
@@ -52,7 +51,7 @@ const router = createBrowserRouter([
 
       {
         path: '/donation/:id',
-        element: <PrivetRoute><DonationSingle></DonationSingle></PrivetRoute>,
+        element: <DonationSingle></DonationSingle>,
         loader: ({ params }) => fetch(`http://localhost:5000/volunteer/${params.id}`)
       },
 
